@@ -1,0 +1,50 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0.21
+    cap_add:
+     - SYS_NICE
+      # コンテナにLinux機能を追加するオプションのようです。SYS_NICEは、プロセスの優先度(nice値)をあげます。
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_HOST: db
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password # 認証方式を8系以前のものにする
+  web: &web
+    build: .
+    command: ./bin/rails s -b 0
+    stdin_open: true 
+    tty: true
+    # この2文を追加でコンテナ内の標準入出力をローカルマシンのターミナルにアタッチする準備が整います。
+    volumes:
+      - .:/ideaFrameworks
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+      MYSQL_HOST: db
+# selenium_chrome を使うために以下の行を追加
+      SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub"
+  selenium_chrome:
+    image: selenium/standalone-chrome-debug
+    logging:
+      driver: none
+  webpacker:
+    <<: *web
+    command: ./bin/webpack-dev-server
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+    ports:
+      - "3035:3035"
+volumes:
+  mysql-data:
+    driver: local
+  vendor_bundle:
+    driver: local
