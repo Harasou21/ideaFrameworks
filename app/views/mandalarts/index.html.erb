@@ -1,9 +1,9 @@
 <table>
   <tbody>
-    <% @mandalarts.each do |mandalart| %>
       <tr>
-        <td><%= mandalart.text%></td>
+        <% @mandalarts.each do |mandalart| %>
+          <td><%= mandalart.text%></td>
+        <% end %>
       </tr>
-    <% end %>
   </tbody>
 </table>
