@@ -3,7 +3,13 @@
       <tr>
         <% @mandalarts.each do |mandalart| %>
           <td><%= mandalart.text%></td>
+          <td><%= link_to '編集', edit_mandalart_path(mandalart) %></td>
         <% end %>
       </tr>
   </tbody>
 </table>
+
+<%= form_with model: @mandalart do |f|%>
+  <%= f.text_field :text%>
+  <%= f.submit%>
+<% end %>
