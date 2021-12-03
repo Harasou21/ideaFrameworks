@@ -1,15 +1,38 @@
-<table>
-  <tbody>
-      <tr>
-        <% @mandalarts.each do |mandalart| %>
-          <td><%= mandalart.text%></td>
-          <td><%= link_to '編集', edit_mandalart_path(mandalart) %></td>
+<table class="mandalart-table">
+
+    <tr>
+      <% @mandalarts[0..2].each do |mandalart| %>
+        <td>
+            <div class="mandalart-text">
+              <%= mandalart.text%>
+            </div>
+            <%= link_to "記入", edit_mandalart_path(mandalart.id)%>
+        </td>
+      <% end %>
+    </tr>
+
+    <tr>
+       <% @mandalarts[3..5].each do |mandalart| %>
+      <td>
+        <div class="mandalart-text">
+          <%= mandalart.text%>
+        </div>
+          <%= link_to "記入", edit_mandalart_path(mandalart.id)%>
+      </td>
         <% end %>
-      </tr>
-  </tbody>
+    </tr>
+
+    <tr>
+       <% @mandalarts[6..8].each do |mandalart| %>
+      <td>
+        <div class="mandalart-text">
+          <%= mandalart.text%>
+        </div>
+          <%= link_to "記入", edit_mandalart_path(mandalart.id)%>
+      </td>
+        <% end %>
+    </tr>
+
 </table>
 
-<%= form_with model: @mandalart do |f|%>
-  <%= f.text_field :text%>
-  <%= f.submit%>
-<% end %>
+
