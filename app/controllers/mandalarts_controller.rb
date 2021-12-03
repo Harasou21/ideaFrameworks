@@ -11,12 +11,11 @@ class MandalartsController < ApplicationController
 
     if @mandalarts == []
       @mandalarts = []
-      9.times do |mandalart|
+      $mandalart_blocks_num.times do |mandalart|
         mandalart = Mandalart.create(text: '')
         @mandalarts << mandalart
       end
     end
-
   end
 
   def new
@@ -42,16 +41,6 @@ class MandalartsController < ApplicationController
       redirect_to mandalarts_path
     else
       render 'edit'
-    end
-  end
-
-
-  def fill_mandalart
-    if @mandalarts == []
-      9.times do |mandalart|
-        mandalart = Mandalart.create(text: '')
-        mandalart.save
-      end
     end
   end
 
