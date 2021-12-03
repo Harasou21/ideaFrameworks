@@ -1,7 +1,22 @@
 class MandalartsController < ApplicationController
   def index
+
+
+    # 最初から配列の要素を9つ入れとく
+    # 配列の要素の中身があれば、何もしない
+    # 配列の要素の中身があれば、""の要素を入れとく
+
+
     @mandalarts = Mandalart.all
-    new
+
+    if @mandalarts == []
+      @mandalarts = []
+      9.times do |mandalart|
+        mandalart = Mandalart.create(text: '')
+        @mandalarts << mandalart
+      end
+    end
+
   end
 
   def new
@@ -18,7 +33,7 @@ class MandalartsController < ApplicationController
   end
 
   def edit
-    @mandalart = Mandalart.find(params[:id])
+    @mandalart = Mandalart.find(params[:id]) 
   end
 
   def update
@@ -27,6 +42,16 @@ class MandalartsController < ApplicationController
       redirect_to mandalarts_path
     else
       render 'edit'
+    end
+  end
+
+
+  def fill_mandalart
+    if @mandalarts == []
+      9.times do |mandalart|
+        mandalart = Mandalart.create(text: '')
+        mandalart.save
+      end
     end
   end
 
