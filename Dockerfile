@@ -1,5 +1,8 @@
 FROM ruby:2.6.5
 
+
+#ENV RAILS_ENV=production
+
 ## nodejsとyarnはwebpackをインストールする際に必要
 # yarnパッケージ管理ツールをインストール
 
@@ -41,7 +44,7 @@ COPY . /ideaFrameworks
 
 RUN yarn install --check-files
 RUN bundle install
-RUN bundle exec rails webpacker:compile
+#RUN bundle exec rails webpacker:compile
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
@@ -51,3 +54,7 @@ EXPOSE 3000
 
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
+
+# COPY start.sh /start.sh
+# RUN chmod 744 /start.sh
+# CMD ["sh","/start.sh"]
