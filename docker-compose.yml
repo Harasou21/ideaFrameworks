@@ -25,6 +25,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - selenium_chrome
     environment:
       WEBPACKER_DEV_SERVER_HOST: webpacker
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -36,6 +37,8 @@ services:
     image: selenium/standalone-chrome-debug
     logging:
       driver: none
+    ports:
+      - 4444:4444
   webpacker:
     <<: *web
     command: ./bin/webpack-dev-server
