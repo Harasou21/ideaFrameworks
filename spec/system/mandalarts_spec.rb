@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Mandalarts", type: :system do
+
     
     #@mandalart = FactoryBot.create(:mandalart)
     
@@ -29,4 +30,5 @@ RSpec.describe "Mandalarts", type: :system do
 
 
   end
+
 end
