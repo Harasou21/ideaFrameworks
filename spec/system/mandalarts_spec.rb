@@ -29,4 +29,5 @@ RSpec.describe "Mandalarts", type: :system do
 
 
   end
+
 end
