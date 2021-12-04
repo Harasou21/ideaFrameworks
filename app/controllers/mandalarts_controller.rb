@@ -9,13 +9,13 @@ class MandalartsController < ApplicationController
 
     @mandalarts = Mandalart.all
 
-    if @mandalarts == []
-      @mandalarts = []
-      $mandalart_blocks_num.times do |mandalart|
-        mandalart = Mandalart.create(text: '')
-        @mandalarts << mandalart
+    if @mandalarts.count < $mandalart_blocks_num
+      ($mandalart_blocks_num - @mandalarts.count).times do |mandalart|
+        Mandalart.create(text: '')
       end
+      @mandalarts = Mandalart.all
     end
+
   end
 
   def new
