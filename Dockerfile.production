@@ -25,8 +25,11 @@ COPY Gemfile /ideaFrameworks/Gemfile
 COPY Gemfile.lock /ideaFrameworks/Gemfile.lock
 RUN bundle install
 
-RUN rails webpacker:install
-RUN rails webpacker:compile
+#RUN rails webpacker:install
+#RUN rails webpacker:compile
+
+# ビルド後にheroku run bundle exec rails webpack:install
+
 
 
 COPY start.sh /start.sh
