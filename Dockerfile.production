@@ -26,10 +26,10 @@ COPY Gemfile.lock /ideaFrameworks/Gemfile.lock
 RUN bundle install
 
 #RUN rails webpacker:install
-#RUN rails webpacker:compile
 
-# ビルド後にheroku run bundle exec rails webpack:install
-
+# ビルド後に
+# heroku run bundle exec rails webpack:install
+# git push heroku masterを実行してください
 
 
 COPY start.sh /start.sh
