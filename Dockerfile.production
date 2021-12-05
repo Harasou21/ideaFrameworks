@@ -4,6 +4,7 @@ FROM ruby:2.6.5
 ENV RAILS_ENV=production
 
 
+
 ## nodejsとyarnはwebpackをインストールする際に必要
 # yarnパッケージ管理ツールをインストール
 
@@ -20,10 +21,13 @@ RUN gem install bundler:2.1.4
 
 RUN mkdir /ideaFrameworks
 WORKDIR /ideaFrameworks
+
 COPY . /ideaFrameworks
+
 COPY Gemfile /ideaFrameworks/Gemfile
 COPY Gemfile.lock /ideaFrameworks/Gemfile.lock
 RUN bundle install
+
 
 #RUN rails webpacker:install
 
@@ -35,3 +39,4 @@ RUN bundle install
 COPY start.sh /start.sh
 RUN chmod 744 /start.sh
 CMD ["sh","/start.sh"]
+
