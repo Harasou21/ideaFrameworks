@@ -21,9 +21,6 @@ RSpec.describe "Mandalarts", type: :request do
       # でカバーできてる気がする
     end
 
-    it "何度リクエストしてもしてもmandalartのレコード数は変わらない" do
-      
-    end
   end
 
   describe "GET #edit" do
