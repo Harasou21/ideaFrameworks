@@ -1,0 +1,2 @@
+class MindmapsController < ApplicationController
+end
