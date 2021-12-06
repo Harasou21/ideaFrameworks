@@ -1,0 +1,2 @@
+class Mindmap < ApplicationRecord
+end
