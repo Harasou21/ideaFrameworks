@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/mindmaps', to: 'mindmaps#index'
 
-  resources :api, format: 'json' do
-    resources :mindmaps ,only: [:index]
+  namespace :api, format: 'json' do
+    resources :mindmaps
   end
 end
