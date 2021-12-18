@@ -1,6 +1,5 @@
 <table class="mandalart-table">
 
-<%= javascript_pack_tag 'mindmaps' %>
     <tr>
       <% @mandalarts[0..2].each do |mandalart| %>
         <td>
@@ -13,7 +12,7 @@
     </tr>
 
     <tr>
-       <% @mandalarts[3..5].each do |mandalart| %>
+        <% @mandalarts[3..5].each do |mandalart| %>
       <td>
         <div class="mandalart-text">
           <%= mandalart.text%>
@@ -24,7 +23,7 @@
     </tr>
 
     <tr>
-       <% @mandalarts[6..8].each do |mandalart| %>
+        <% @mandalarts[6..8].each do |mandalart| %>
       <td>
         <div class="mandalart-text">
           <%= mandalart.text%>
@@ -37,3 +36,4 @@
 </table>
 
 
+<%= link_to "マインドマップ" , mindmaps_path%>
