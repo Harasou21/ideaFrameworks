@@ -38,7 +38,7 @@ class MandalartsController < ApplicationController
   def update
     @mandalart = Mandalart.find(params[:id])
     if @mandalart.update(mandalart_params)
-      redirect_to mandalarts_path
+      redirect_to mandalarts_path, status: 301
     else
       render 'edit'
     end
