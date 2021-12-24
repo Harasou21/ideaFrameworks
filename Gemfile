@@ -47,6 +47,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  gem 'yard'
+  gem 'guard-yard'
+  gem 'yard-activesupport-concern' # Rails で Concern 使う場合は必須
+  gem 'redcarpet' # Option (Markdown)
+
 end
 
 group :test do
@@ -62,3 +67,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails'
+
+gem 'haml-rails'
+gem 'erb2haml'
