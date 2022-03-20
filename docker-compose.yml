@@ -21,6 +21,11 @@ services:
     # この2文を追加でコンテナ内の標準入出力をローカルマシンのターミナルにアタッチする準備が整います。
     volumes:
       - .:/ideaFrameworks
+      # 1. exclude volumes
+      - /ideaFrameworks/vendor
+      - /ideaFrameworks/tmp
+      - /ideaFrameworks/log
+      - /ideaFrameworks/.git
     ports:
       - "3000:3000"
     depends_on:
