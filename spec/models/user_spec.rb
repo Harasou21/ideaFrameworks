@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  let(:user) { FactoryBot.build(:user)}
+  let(:user) { FactoryBot.build(:user) }
   let(:user_but_empty_name)                      { FactoryBot.build(:user, :but_empty_name) }
   let(:user_but_empty_email)                     { FactoryBot.build(:user, :but_empty_email) }
   let(:user_but_have_long_name)                  { FactoryBot.build(:user, :but_have_long_name) }
