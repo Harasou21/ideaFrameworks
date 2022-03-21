@@ -30,5 +30,12 @@ FactoryBot.define do
       password { "a"*5 }
       password_confirmation { password }
     end
+
+    trait :every_invalid do
+      name { "" }
+      email { "user@invalid" }
+      password { "foo" }
+      password_confirmation { "bar" }
+    end
   end
 end
