@@ -1,0 +1,43 @@
+AllCops:
+  TargetRubyVersion:
+  DisplayCopNames: true
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - 'lib/tasks/auto_annotate_models.rake'
+
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
+Rails:
+  Enabled: true
+
+
+# コメントの先頭にホワイトスペースを入れること
+
+Layout/LeadingCommentSpace:
+  Enabled: true
+  Exclude: []
+
+
+# Hashを書く時はキーを左揃えにし、valueの位置を整える
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+
+  
+Lint/AssignmentInCondition:
+  Enable: false
+
+
+
+RSpec/EmptyLineAfterFinalLet:
+  Enable: true
+RSpec/EmptyLineAfterSubject:
+  Enable: true

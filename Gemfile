@@ -52,7 +52,10 @@ group :development do
   gem 'guard-yard'
   gem 'yard-activesupport-concern' # Rails で Concern 使う場合は必須
   gem 'redcarpet' # Option (Markdown)
-
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :test do
