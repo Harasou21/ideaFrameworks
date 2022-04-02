@@ -119,6 +119,7 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 5.1)
+    haml_rails (0.1.0)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
@@ -322,6 +323,7 @@ DEPENDENCIES
   faker
   guard-yard
   haml-rails
+  haml_rails
   jbuilder (~> 2.7)
   launchy
   listen (~> 3.3)
