@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     resources :mindmaps
   end
+  resources :users
 end
