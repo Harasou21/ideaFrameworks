@@ -31,12 +31,6 @@ Layout/HashAlignment:
   EnforcedColonStyle: table
 
 
-  
-Lint/AssignmentInCondition:
-  Enable: false
-
-
-
 RSpec/EmptyLineAfterFinalLet:
   Enable: true
 RSpec/EmptyLineAfterSubject:
