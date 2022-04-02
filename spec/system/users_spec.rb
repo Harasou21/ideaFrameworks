@@ -5,7 +5,7 @@ RSpec.describe "Users", type: :system do
   let(:invalid_user) { FactoryBot.build(:user, :every_invalid) }
 
   context "ユーザー新規登録ができるとき" do
-    it "正しい情報だとユーザー新規登録ができる" do
+    it "正しい情報だとユーザー新規登録ができ、users/showにリダイレクトする" do
       visit new_user_path
       fill_in 'user[name]',                  with: user.name
       fill_in 'user[email]',                 with: user.email
@@ -15,6 +15,8 @@ RSpec.describe "Users", type: :system do
       expect do 
         find('input[name="commit"]').click
       end.to change { User.count }.by(1)
+
+      expect(current_path).to eq("/users/#{User.last.id}")
     end
   end
 
