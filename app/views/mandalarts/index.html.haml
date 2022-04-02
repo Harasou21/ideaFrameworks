@@ -1,0 +1,20 @@
+%table.mandalart-table
+  %tr
+    - @mandalarts[0..2].each do |mandalart|
+      %td
+        .mandalart-text
+          = mandalart.text
+        = link_to "記入", edit_mandalart_path(mandalart.id)
+  %tr
+    - @mandalarts[3..5].each do |mandalart|
+      %td
+        .mandalart-text
+          = mandalart.text
+        = link_to "記入", edit_mandalart_path(mandalart.id)
+  %tr
+    - @mandalarts[6..8].each do |mandalart|
+      %td
+        .mandalart-text
+          = mandalart.text
+        = link_to "記入", edit_mandalart_path(mandalart.id)
+= link_to "マインドマップ" , mindmaps_path

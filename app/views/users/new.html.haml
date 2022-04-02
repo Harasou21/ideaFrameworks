@@ -1,0 +1,24 @@
+= form_with(model: @user) do |f|
+  %div
+    = f.label :name
+    = f.text_field :name
+  %div
+    = display_error_messages(@user,:name)
+  %div
+    = f.label :email
+    = f.email_field :email
+  %div
+    = display_error_messages(@user,:email)
+  %div
+    = f.label :password
+    = f.password_field :password
+    %p 6字以上のパスワード
+  %div
+    = display_error_messages(@user,:password)
+  %div
+    %div
+      = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  %div
+    = display_error_messages(@user,:password_confirmation)
+  = f.submit "登録"
