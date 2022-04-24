@@ -1,5 +1,18 @@
+require:
+  - rubocop-rspec
+  - rubocop-rails
+  - rubocop-performance
+
+# RSpecでのブロック行数チェックを無効化
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'config/**/*'
+
+
 AllCops:
-  TargetRubyVersion:
+  NewCops: enable
+  TargetRubyVersion: 2.6.5
   DisplayCopNames: true
   Exclude:
     - 'vendor/**/*'
@@ -8,14 +21,15 @@ AllCops:
     - 'tmp/**/*'
     - 'node_modules/**/*'
     - 'lib/tasks/auto_annotate_models.rake'
-
-require:
-  - rubocop-rspec
-  - rubocop-rails
+    - !ruby/regexp /old_and_unused\.rb$/
 
 Rails:
   Enabled: true
 
+
+# 日本語でのコメントを許可
+Style/AsciiComments:
+  Enabled: false
 
 # コメントの先頭にホワイトスペースを入れること
 
@@ -30,3 +44,23 @@ Layout/HashAlignment:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
 
+Bundler:
+  Enabled: true
+
+Gemspec:
+  Enabled: true
+
+Lint:
+  Enabled: true
+
+Performance:
+  Enabled: true
+
+Security:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
