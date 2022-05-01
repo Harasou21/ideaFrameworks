@@ -10,7 +10,7 @@
     = f.label :password
     = f.password_field :password
 
-  = f.submit "ログイン"
+  = f.submit "ログイン",name: 'login'
 
 %p アカウント登録がまだですか？
 = link_to "ユーザー登録", new_user_path
