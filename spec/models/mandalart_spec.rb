@@ -14,11 +14,10 @@ RSpec.describe Mandalart, type: :model do
 
     context "投稿できない場合" do
       it "テキストの文字数が300文字以上" do
-        @mandalart.text = "a"* 301
+        @mandalart.text = "a" * 301
         @mandalart.valid?
         expect(@mandalart.errors.full_messages).to include("Text is too long (maximum is 300 characters)")
       end
     end
-
   end
 end
