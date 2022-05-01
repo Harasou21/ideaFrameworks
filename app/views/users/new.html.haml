@@ -22,3 +22,6 @@
   %div
     = display_error_messages(@user,:password_confirmation)
   = f.submit "登録"
+
+%p すでにアカウントをもっていますか？
+= link_to "ログイン", "/login"

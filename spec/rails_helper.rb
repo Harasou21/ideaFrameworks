@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+require 'spec_helper'
+require 'support/helpers/sessions_helper'
 
 RSpec.configure do |config|
   config.before(:each, type: :system) do
@@ -11,12 +12,13 @@ RSpec.configure do |config|
   end
 end
 
-require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -43,6 +45,8 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+  config.include RspecSessionsHelper
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

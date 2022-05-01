@@ -4,30 +4,29 @@ FactoryBot.define do
     email { "harasou@example.com" }
     password { "foobar" }
     password_confirmation { "foobar" }
-
     trait :but_empty_name do
-      name {""}
+      name { "" }
     end
 
     trait :but_empty_email do
-      email {""}
+      email { "" }
     end
 
     trait :but_have_long_name do
-      name {"a"*51}
+      name { "a" * 51 }
     end
 
     trait :but_have_long_email do
-      email {"a"*244+"@example.com"}
+      email { ("a" * 244) + "@example.com" }
     end
 
     trait :but_have_empty_password do
-      password { ""*6 }
+      password { "" * 6 }
       password_confirmation { password }
     end
 
     trait :but_have_less_5_characters_password do
-      password { "a"*5 }
+      password { "a" * 5 }
       password_confirmation { password }
     end
 

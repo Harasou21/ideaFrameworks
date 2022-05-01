@@ -2,3 +2,5 @@
 = @user.password
 - flash.each do |message_type,message|
   = message
+
+= link_to  "ログアウト",logout_path, method: :delete

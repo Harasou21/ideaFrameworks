@@ -12,16 +12,16 @@ RSpec.describe "Users", type: :system do
       fill_in 'user[password]',              with: user.password
       fill_in 'user[password_confirmation]', with: user.password_confirmation
 
-      expect do 
+      expect do
         find('input[name="commit"]').click
       end.to change { User.count }.by(1)
 
-      expect(current_path).to eq("/users/#{User.last.id}")
+      expect(page).to have_current_path("/users/#{User.last.id}", ignore_query: true)
     end
   end
 
-  context "ユーザー新規登録ができないとき" do 
-    it "誤った情報では新規登録ができずに、新規登録ページへリダイレクト" do 
+  context "ユーザー新規登録ができないとき" do
+    it "誤った情報では新規登録ができずに、新規登録ページへリダイレクト" do
       visit new_user_path
       fill_in 'user[name]',                  with: invalid_user.name
       fill_in 'user[email]',                 with: invalid_user.email
@@ -32,7 +32,7 @@ RSpec.describe "Users", type: :system do
         find('input[name="commit"]').click
       end.to change { User.count }.by(0)
 
-      expect(current_path).to eq("/users")
+      expect(page).to have_current_path("/users")
     end
   end
 end

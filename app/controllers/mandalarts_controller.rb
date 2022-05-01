@@ -1,21 +1,17 @@
 class MandalartsController < ApplicationController
   def index
-
-
     # 最初から配列の要素を9つ入れとく
     # 配列の要素の中身があれば、何もしない
     # 配列の要素の中身があれば、""の要素を入れとく
 
-
     @mandalarts = Mandalart.all
 
     if @mandalarts.count < $mandalart_blocks_num
-      ($mandalart_blocks_num - @mandalarts.count).times do |mandalart|
+      ($mandalart_blocks_num - @mandalarts.count).times do |_mandalart|
         Mandalart.create(text: '')
       end
       @mandalarts = Mandalart.all
     end
-
   end
 
   def new
@@ -32,20 +28,21 @@ class MandalartsController < ApplicationController
   end
 
   def edit
-    @mandalart = Mandalart.find(params[:id]) 
+    @mandalart = Mandalart.find(params[:id])
   end
 
   def update
     @mandalart = Mandalart.find(params[:id])
     if @mandalart.update(mandalart_params)
-      redirect_to mandalarts_path, status: 301
+      redirect_to mandalarts_path, status: :moved_permanently
     else
       render 'edit'
     end
   end
 
   private
-    def mandalart_params
-      params.require(:mandalart).permit(:text)
-    end
+
+  def mandalart_params
+    params.require(:mandalart).permit(:text)
+  end
 end

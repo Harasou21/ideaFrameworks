@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def display_error_messages(model,attribute)
+  def display_error_messages(model, attribute)
     @error = nil
     # インスタンスの中身を一旦削除
     # 削除しないと2回目呼ばれたときに、インスタンスの中身を
