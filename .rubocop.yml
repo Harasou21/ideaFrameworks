@@ -16,6 +16,7 @@ AllCops:
   DisplayCopNames: true
   Exclude:
     - 'vendor/**/*'
+    - 'app/javascript/**/**/**/**'
     - 'bin/**/*'
     - 'db/**/*'
     - 'tmp/**/*'
