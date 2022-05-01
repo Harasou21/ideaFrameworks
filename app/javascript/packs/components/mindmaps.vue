@@ -1,6 +1,7 @@
 <template>
 
 <body>
+  
   this is mindmaps
 <draggable>
   <div v-for="mindmap in mindmaps">
